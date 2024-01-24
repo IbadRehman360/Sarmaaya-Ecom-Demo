@@ -1,0 +1,54 @@
+
+Step 1: Project Setup
+Understand Requirements:
+
+Review Figma design for layout and components.
+Familiarize yourself with the fake store API.
+Environment Setup:
+
+    
+Step 2: Frontend Development
+Listings Page:
+UI Components:
+Implement Listings Page components based on design.
+Enable category filtering and keyword search.
+Add to cart functionality.
+Product Page:
+UI Components:
+Create UI for Product Page.
+Fetch and display detailed product information.
+Add to cart from the Product Page.
+Cart Page:
+UI Components:
+Develop Cart Page UI with editable quantities.
+Display price summary.
+Implement checkout button with success message.
+Step 3: Backend Integration
+API Connection:
+Connect frontend to the fake store API.
+Step 4: Testing and Optimization
+Testing:
+Conduct unit and integration testing.
+Optimize code for better performance.
+Step 5: Documentation and Deployment
+Documentation:
+
+Document code for future reference.
+Prepare user documentation.
+Deployment:
+
+Deploy the application to a hosting service.
+Step 6: Review and Submission
+Review:
+
+Internally review for functionality.
+Feedback:
+
+Gather user feedback and make adjustments.
+Submission:
+
+Ensure the project meets all requirements and submit within the timeframe.
+
+fetch('https://fakestoreapi.com/products?sort=desc')
+            .then(res=>res.json())
+            .then(json=>console.log(json))
