@@ -173,8 +173,8 @@ export default function Example() {
             </div>
           </div>
         </div>
-        <div className="hidden lg:flex lg:flex-2 lg:justify-end lg:items-end">
-          <button className="flex items-center justify-center gap-2  rounded-[15px] px-[45px] py-[11px] bg-black text-white">
+        <div className="hidden lg:flex lg:flex-2  lg:justify-end lg:items-end ">
+          <button className="flex items-center hover:opacity-80 justify-center gap-2  rounded-[15px] px-[45px] py-[11px] bg-black   text-white">
             <span>0</span>
             <span className="flex items-center">
               <span className="mb-0.5 ml-1">
