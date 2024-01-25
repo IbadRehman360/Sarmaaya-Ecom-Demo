@@ -1,5 +1,4 @@
 import "@/styles/global.css";
-
 import Header from "@/components/layout/Header";
 
 export const metadata = {
@@ -11,13 +10,15 @@ export const metadata = {
 const RootLayout = ({ children }) => (
   <html lang="en">
     <body suppressHydrationWarning={true}>
-      {/* <link rel="icon" href="/assets/logosenpai.png" /> */}
+      <link rel="icon" href="/assets/logosenpai.png" />
       <div className="main">
         <div className="gradient" />
       </div>
       <Header />
 
-      <main className="app">{children}</main>
+      <main className="app" style={{ backgroundColor: "#FFFCFA" }}>
+        {children}
+      </main>
     </body>
   </html>
 );

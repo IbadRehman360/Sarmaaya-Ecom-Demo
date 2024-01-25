@@ -1,5 +1,5 @@
 "use client";
-
+import { BsCart2 } from "react-icons/bs";
 import { Fragment, useState } from "react";
 import { Dialog, Disclosure, Popover, Transition } from "@headlessui/react";
 import {
@@ -16,39 +16,37 @@ import {
   PhoneIcon,
   PlayCircleIcon,
 } from "@heroicons/react/20/solid";
-
+import Image from "next/image";
 const products = [
   {
-    name: "Analytics",
-    description: "Get a better understanding of your traffic",
+    name: "Computing Devices:",
+    description: "Enhance your data analytics with computing technology",
     href: "#",
     icon: ChartPieIcon,
   },
   {
-    name: "Engagement",
-    description: "Speak directly to your customers",
+    name: "Mobile Devices",
+    description:
+      "Engage and communicate effectively with your customers with mobile devices",
     href: "#",
     icon: CursorArrowRaysIcon,
   },
   {
-    name: "Security",
-    description: "Your customers’ data will be safe and secure",
+    name: "Audio Electronics",
+    description:
+      "Ensure the safety and security of your customers' audio electronics",
     href: "#",
     icon: FingerPrintIcon,
   },
   {
-    name: "Integrations",
-    description: "Connect with third-party tools",
+    name: "Communication Devices",
+    description:
+      "Optimize connectivity by seamlessly integrating with third-party tools",
     href: "#",
     icon: SquaresPlusIcon,
   },
-  {
-    name: "Automations",
-    description: "Build strategic funnels that will convert",
-    href: "#",
-    icon: ArrowPathIcon,
-  },
 ];
+
 const callsToAction = [
   { name: "Watch demo", href: "#", icon: PlayCircleIcon },
   { name: "Contact sales", href: "#", icon: PhoneIcon },
@@ -62,19 +60,16 @@ export default function Example() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="bg-white">
+    <header>
       <nav
-        className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
+        className="mx-auto flex    items-center justify-center lg:max-w-[1400px] p-6 lg:px-8"
         aria-label="Global"
       >
-        <div className="flex lg:flex-1">
+        <div className=" flex-1">
           <a href="#" className="-m-1.5 p-1.5">
-            <span className="sr-only">Your Company</span>
-            <img
-              className="h-8 w-auto"
-              src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-              alt=""
-            />
+            <span className=" font-semibold text-xl  font-inter">
+              Ecommerence
+            </span>
           </a>
         </div>
         <div className="flex lg:hidden">
@@ -87,10 +82,10 @@ export default function Example() {
             <Bars3Icon className="h-6 w-6" aria-hidden="true" />
           </button>
         </div>
-        <Popover.Group className="hidden lg:flex lg:gap-x-12">
+        <Popover.Group className="hidden xl:flex lg:gap-x-10">
           <Popover className="relative">
-            <Popover.Button className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900">
-              Product
+            <Popover.Button className="flex items-center   gap-x-1 text-sm font-semibold leading-6 text-gray-900">
+              Electronic
               <ChevronDownIcon
                 className="h-5 w-5 flex-none text-gray-400"
                 aria-hidden="true"
@@ -132,41 +127,64 @@ export default function Example() {
                     </div>
                   ))}
                 </div>
-                <div className="grid grid-cols-2 divide-x divide-gray-900/5 bg-gray-50">
-                  {callsToAction.map((item) => (
-                    <a
-                      key={item.name}
-                      href={item.href}
-                      className="flex items-center justify-center gap-x-2.5 p-3 text-sm font-semibold leading-6 text-gray-900 hover:bg-gray-100"
-                    >
-                      <item.icon
-                        className="h-5 w-5 flex-none text-gray-400"
-                        aria-hidden="true"
-                      />
-                      {item.name}
-                    </a>
-                  ))}
-                </div>
               </Popover.Panel>
             </Transition>
           </Popover>
 
-          <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
-            Features
+          <a href="#" className="text-sm  leading-6 text-gray-900">
+            Mens Fashion
           </a>
-          <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
-            Marketplace
+          <a href="#" className="text-sm   leading-6 text-gray-900">
+            Women&apos;s Fashion
           </a>
-          <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
-            Company
+          <a href="#" className="text-sm  leading-6 text-gray-900">
+            Jewelry
           </a>
         </Popover.Group>
-        <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
-            Log in <span aria-hidden="true">&rarr;</span>
-          </a>
+        <div className="  hidden lg:flex lg:mr-20 xl:mr-4 justify-end xl:px-12 2xl:px-20 lg:ml-6 lg:justify-end">
+          <div className="w-full max-w-lg lg:max-w-xs text-left">
+            <label htmlFor="search" className="sr-only">
+              Search
+            </label>
+            <div className=" relative">
+              <div className="pointer-events-none absolute inset-y-0 right-4 flex items-center pl-3">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={1.5}
+                  stroke="currentColor"
+                  className="w-5 h-5"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+                  />
+                </svg>
+              </div>
+              <input
+                id="search"
+                name="search"
+                className="block w-full rounded-md bg-white border py-2.5 pl-4 p-3 px-40 text-gray-300 placeholder:text-gray-400 focus:bg-white focus:text-gray-900 focus:ring-0 sm:text-sm sm:leading-6"
+                placeholder="Search"
+                type="search"
+              />
+            </div>
+          </div>
+        </div>
+        <div className="hidden lg:flex lg:flex-2 lg:justify-end lg:items-end">
+          <button className="flex items-center justify-center gap-2  rounded-[15px] px-[45px] py-[11px] bg-black text-white">
+            <span>0</span>
+            <span className="flex items-center">
+              <span className="mb-0.5 ml-1">
+                <BsCart2 />
+              </span>
+            </span>
+          </button>
         </div>
       </nav>
+
       <Dialog
         as="div"
         className="lg:hidden"
@@ -178,9 +196,9 @@ export default function Example() {
           <div className="flex items-center justify-between">
             <a href="#" className="-m-1.5 p-1.5">
               <span className="sr-only">Your Company</span>
-              <img
-                className="h-8 w-auto"
+              <Image
                 src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+                className="h-8 w-auto"
                 alt=""
               />
             </a>
@@ -228,28 +246,52 @@ export default function Example() {
                   href="#"
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >
-                  Features
+                  Electronic{" "}
                 </a>
                 <a
                   href="#"
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >
-                  Marketplace
+                  Mens Fashion
                 </a>
                 <a
                   href="#"
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                  className="-mx-3 pb-6 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >
                   Company
                 </a>
               </div>
-              <div className="py-6">
-                <a
-                  href="#"
-                  className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                >
-                  Log in
-                </a>
+            </div>
+          </div>
+          <div className="  hidden md:flex md:flex-2 lg:mr-20 xl:mr-4 justify-end xl:px-12 2xl:px-20 lg:ml-6 lg:justify-end">
+            <div className="w-full max-w-lg lg:max-w-xs text-left">
+              <label htmlFor="search" className="sr-only">
+                Search
+              </label>
+              <div className=" relative">
+                <div className="pointer-events-none absolute inset-y-0 right-4 flex items-center pl-3">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={1.5}
+                    stroke="currentColor"
+                    className="w-5 h-5"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+                    />
+                  </svg>
+                </div>
+                <input
+                  id="search"
+                  name="search"
+                  className="block w-full rounded-md bg-white border py-2.5 pl-4 p-3 px-40 text-gray-300 placeholder:text-gray-400 focus:bg-white focus:text-gray-900 focus:ring-0 sm:text-sm sm:leading-6"
+                  placeholder="Search"
+                  type="search"
+                />
               </div>
             </div>
           </div>
