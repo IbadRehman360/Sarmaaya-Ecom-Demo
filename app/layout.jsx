@@ -1,5 +1,6 @@
-import "@styles/globals.css";
-import Header from "@/components/layout/header";
+import "@/styles/global.css";
+
+import Header from "@/components/layout/Header";
 
 export const metadata = {
   title: "SenpaiMerch",
@@ -15,6 +16,7 @@ const RootLayout = ({ children }) => (
         <div className="gradient" />
       </div>
       <Header />
+
       <main className="app">{children}</main>
     </body>
   </html>
