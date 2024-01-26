@@ -1,10 +1,11 @@
 import Cart from "@/components/cart/Cart";
+import Summary from "@/components/cart/Summary";
 
 function CheckoutPage() {
   return (
-    <div>
-      <Cart />{" "}
-    </div>
+    <main style={{ backgroundColor: "#FFFCFA" }}>
+      <Cart />
+    </main>
   );
 }
 

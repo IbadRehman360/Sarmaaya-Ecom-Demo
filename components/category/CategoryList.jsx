@@ -1,6 +1,18 @@
+"use client"
 import { BsCart2 } from "react-icons/bs";
 import Link from "next/link";
+import { useCart } from "@/app/contexts/CartContext";
 function CategoryProducts({ products }) {
+  const {cart, dispatch} = useCart()
+  console.log(cart)
+
+  const addToCart = (item) => {
+    dispatch({ type: 'ADD_TO_CART', payload: item });
+  };
+
+  const removeFromCart = (itemId) => {
+    dispatch({ type: 'REMOVE_FROM_CART', payload: itemId });
+  };
   return (
     <div className=" py-16 px-4 sm:py-24 sm:px-6  lg:max-w-[1400px] mx-auto lg:px-8">
       <div className="grid grid-cols-1 gap-y-12 sm:grid-cols-2 sm:gap-x-6 lg:grid-cols-4 xl:gap-x-6">
@@ -24,7 +36,7 @@ function CategoryProducts({ products }) {
                 <p className="text-[0.85rem] mt-1.5 mb-3  font-opensans text-gray-800">
                   {product.category}
                 </p>
-                <p className="mt-5 text-[0.88rem] line-clamp-3 text-gray-700 mb-4 font-poppins ">
+                <p className="mt-3 text-[0.88rem] line-clamp-3 text-gray-700 mb-4 font-poppins ">
                   {product.description.slice(0, 96)}
                 </p>
                 <div className="flex items-center">
@@ -38,15 +50,16 @@ function CategoryProducts({ products }) {
               </div>
             </Link>
             <div className="px-2 pb-4">
-              <a
-                href="#"
+              <button
+              as="button"
+              onClick={() => addToCart(product)}
                 className="flex justify-center  font-poppins items-center text-center text-xs bg-black  text-white py-4 px-4 rounded-md hover:opacity-80"
               >
                 Add to Bag
                 <span className="ml-3 mb-0.5 font-montserrat text-[0.9rem] ">
                   <BsCart2 />
                 </span>
-              </a>
+              </button>
             </div>
           </div>
         ))}

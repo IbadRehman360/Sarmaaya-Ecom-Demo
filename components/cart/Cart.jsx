@@ -1,4 +1,7 @@
+"use client"
+import { useCart } from "@/app/contexts/CartContext";
 import Cartul from "./Cartul";
+import Summary from "./Summary";
 
 const products = [
   {
@@ -27,14 +30,25 @@ const products = [
 ];
 
 export default function Cart() {
-  return (
-    <div className="bg-white">
-      <div className="max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
-        <h1 className="text-3xl font-extrabold tracking-tight text-gray-900">
-          Shopping Cart
+  const {cart, dispatch} = useCart()
+  console.log(cart)
+
+   return (
+    <div className="">
+      <div className="max-w-[1400px] mx-auto py-16 px-4 sm:py-16  2xl:py-24   sm:px-6 lg:px-8">
+        <h1 className=" font-inter text-2xl      tracking-wide text-black">
+     Your Cart 
         </h1>
-        <Cartul />
-        <form className="mt-12">{/* Order summary */}</form>
+        <form className="mt-12">
+          <div className="grid grid-cols-12">
+            <div className="col-span-8  ">
+              <Cartul cartItem={cart} />
+            </div>
+            <div className="col-span-4">
+              <Summary />
+            </div>
+          </div>
+        </form>
       </div>
     </div>
   );

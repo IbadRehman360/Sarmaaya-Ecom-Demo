@@ -1,6 +1,6 @@
 import "@/styles/global.css";
 import Header from "@/components/layout/Header";
-
+import { CartProvider } from "./contexts/CartContext";
 export const metadata = {
   title: "SenpaiMerch",
   description:
@@ -9,8 +9,9 @@ export const metadata = {
 
 const RootLayout = ({ children }) => (
   <html lang="en">
-    <body suppressHydrationWarning={true}>
-      <link rel="icon" href="/assets/logosenpai.png" />
+    <body suppressHydrationWarning={true}>    
+    <CartProvider>
+          <link rel="icon" href="/assets/logosenpai.png" />
       <div className="main">
         <div className="gradient" />
       </div>
@@ -18,7 +19,8 @@ const RootLayout = ({ children }) => (
 
       <main className="app" style={{ backgroundColor: "#FFFCFA" }}>
         {children}
-      </main>
+      </main>  
+       </CartProvider>
     </body>
   </html>
 );

@@ -15,7 +15,7 @@ async function DisplayProduct({ id }) {
           <BackBtn />
           <div></div>
         </div>
-        <div className="lg:max-w-7xl lg:px-8 lg:grid lg:grid-cols-2 lg:gap-x-8 max-w-2xl mx-auto  ">
+        <div className="lg:max-w-7xl lg:px-6 lg:grid lg:grid-cols-2 lg:gap-x-8 max-w-2xl mx-auto  ">
           <div className="lg:max-w-lg lg:self-end  pb-4   px-12 lg:px-0 lg:py-0 lg:border-none mx-auto">
             <div className="lg:col-start-2 lg:row-span-2 lg:self-start">
               <div className="transparent-container">
@@ -23,7 +23,7 @@ async function DisplayProduct({ id }) {
                   <img
                     src={product.image}
                     alt={product.imageAlt}
-                    className="w-full max-h-[12rem] md:max-h-[14rem] xl:max-h-[28rem]  object-contain  max-h-80 hover:opacity-90"
+                    className="w-full max-h-[12rem] md:max-h-[14rem] lg:max-h-[28rem] lg:mb-3  object-contain  max-h-80 hover:opacity-90"
                   />
                 </div>
               </div>
@@ -95,7 +95,8 @@ async function DisplayProduct({ id }) {
                 </div>
                 <div className="mt-10">
                   <button
-                    type="submit"
+                    as="button"
+                    onClick={() => addToCart(product)}
                     className="w-full bg-black border border-transparent rounded-2xl py-4 px-8 flex items-center justify-center text-sm tracking-wider    font-poppins text-white  hover:opacity-80 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500"
                   >
                     Buy Now

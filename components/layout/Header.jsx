@@ -1,10 +1,8 @@
 "use client";
-import { BsCart2 } from "react-icons/bs";
-import { Fragment, useState } from "react";
+ import { Fragment, useState } from "react";
 import { Dialog, Disclosure, Popover, Transition } from "@headlessui/react";
 import Link from "next/link";
 import {
-  ArrowPathIcon,
   Bars3Icon,
   ChartPieIcon,
   CursorArrowRaysIcon,
@@ -18,6 +16,7 @@ import {
   PlayCircleIcon,
 } from "@heroicons/react/20/solid";
 import Image from "next/image";
+import CartHeader from "./CartHeader";
 const products = [
   {
     name: "Computing Devices:",
@@ -67,16 +66,13 @@ export default function Example() {
         aria-label="Global"
       >
         <div className=" flex-1">
-          <a
-            href="#"
-            className="-m-1.5 p-1.5 border-2 border-black px-6 py-2 hover:opacity-70 hover:border-opacity-70"
+        <Link href="/"
+            className="-m-1.5 p-1.5 hover:shadow-md shadow-sm border-2 border-black px-6 py-2 hover:opacity-70 hover:border-opacity-70"
           >
-            <Link href="/">
               <span className=" font-semibold text-xl  font-inter">
                 Ecommerence
               </span>
-            </Link>
-          </a>
+          </Link>
         </div>
         <div className="flex lg:hidden">
           <button
@@ -121,13 +117,13 @@ export default function Example() {
                         />
                       </div>
                       <div className="flex-auto">
-                        <a
+                        <Link
                           href={item.href}
                           className="block font-semibold text-gray-900"
                         >
                           {item.name}
                           <span className="absolute inset-0" />
-                        </a>
+                        </Link>
                         <p className="mt-1 text-gray-600">{item.description}</p>
                       </div>
                     </div>
@@ -137,24 +133,24 @@ export default function Example() {
             </Transition>
           </Popover>
 
-          <a
+          <Link
             href="#"
             className="text-sm  font-poppins  leading-6 text-gray-900"
           >
             Mens Fashion
-          </a>
-          <a
+          </Link>
+          <Link
             href="#"
             className="text-sm   font-poppins  leading-6 text-gray-900"
           >
             Women&apos;s Fashion
-          </a>
-          <a
+          </Link>
+          <Link
             href="#"
             className="text-sm  font-poppins  leading-6 text-gray-900"
           >
             Jewelry
-          </a>
+          </Link>
         </Popover.Group>
         <div className="  hidden lg:flex lg:mr-20 xl:mr-4 justify-end lg:px-6 2xl:px-12 lg:ml-6 lg:justify-end">
           <div className="w-full max-w-lg lg:max-w-xs text-left">
@@ -188,16 +184,7 @@ export default function Example() {
             </div>
           </div>
         </div>
-        <div className="hidden lg:flex lg:flex-2  lg:justify-end lg:items-end ">
-          <button className="flex items-center hover:opacity-80 justify-center gap-2  rounded-[15px] px-[45px] py-[11px] bg-black   text-white">
-            <span className="font-montserrat  font-extralight ">0</span>
-            <span className="flex items-center">
-              <span className="mb-0.5 ml-1">
-                <BsCart2 />
-              </span>
-            </span>
-          </button>
-        </div>
+        <CartHeader/>
       </nav>
 
       <Dialog
@@ -209,10 +196,10 @@ export default function Example() {
         <div className="fixed inset-0 z-10" />
         <Dialog.Panel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
           <div className="flex items-center justify-between">
-            <a href="#" className="-m-1.5 p-1.5">
+            <Link href="#" className="-m-1.5 p-1.5">
               <span className="sr-only">Your Company</span>
               <Image className="h-8 w-auto" alt="" />
-            </a>
+            </Link>
             <button
               type="button"
               className="-m-2.5 rounded-md p-2.5 text-gray-700"
@@ -253,24 +240,24 @@ export default function Example() {
                     </>
                   )}
                 </Disclosure>
-                <a
+                <Link
                   href="#"
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >
                   Electronic{" "}
-                </a>
-                <a
+                </Link>
+                <Link
                   href="#"
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >
                   Mens Fashion
-                </a>
-                <a
+                </Link>
+                <Link
                   href="#"
                   className="-mx-3 pb-6 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >
                   Company
-                </a>
+                </Link>
               </div>
             </div>
           </div>
