@@ -18,19 +18,19 @@ function CategoryProducts({ products }) {
                 />
               </div>
               <div className="px-2 py-4">
-                <h3 className="font-semibold text-lg font-inter line-clamp-1 text-gray-900">
+                <h3 className="font-semibold text-lg font-inter line-clamp-1 hover:opacity-90 text-gray-900">
                   {product.title}
                 </h3>
-                <p className="text-sm mt-1 mb-3 text-gray-800">
+                <p className="text-[0.85rem] mt-1.5 mb-3  font-opensans text-gray-800">
                   {product.category}
                 </p>
-                <p className="mt-5 text-[0.88rem] line-clamp-3 mb-4 font-poppins ">
+                <p className="mt-5 text-[0.88rem] line-clamp-3 text-gray-700 mb-4 font-poppins ">
                   {product.description.slice(0, 96)}
                 </p>
                 <div className="flex items-center">
-                  <span className="text-black ">
+                  <span className="text-black font-poppins ">
                     Price{" "}
-                    <span className="text-[1rem] ml-1.5 font-bold">
+                    <span className="text-[1rem] hover:opacity-80 ml-1.5 font-bold font-montserrat">
                       ${product.price.toFixed(2)}
                     </span>
                   </span>
@@ -40,10 +40,10 @@ function CategoryProducts({ products }) {
             <div className="px-2 pb-4">
               <a
                 href="#"
-                className="flex justify-center items-center text-center text-xs bg-black  text-white py-4 px-4 rounded-md hover:opacity-80"
+                className="flex justify-center  font-poppins items-center text-center text-xs bg-black  text-white py-4 px-4 rounded-md hover:opacity-80"
               >
                 Add to Bag
-                <span className="ml-3 text-[1rem] ">
+                <span className="ml-3 mb-0.5 font-montserrat text-[0.9rem] ">
                   <BsCart2 />
                 </span>
               </a>

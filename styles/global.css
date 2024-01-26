@@ -9,3 +9,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+.transparent-container {
+  background-color: white;
+  mix-blend-mode: multiply; /* Experiment with different blend modes based on your image */
+  overflow: hidden;
+}
+
+.transparent-container img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  image-rendering: -webkit-optimize-contrast; /* Improve rendering on WebKit browsers */
+}
