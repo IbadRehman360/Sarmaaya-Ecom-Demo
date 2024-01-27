@@ -70,7 +70,7 @@ function Searchbar() {
       </div>
      
       {searchQuery.length > 3  && filteredProducts.length > 0 && (
-        <div className="  px-3 border-gray-300   bg-white    pt-3  pb-1   text-black   absolute    left-6 2xl:left-52 top-[4rem] rounded-lg  border    cursor-pointer z-50   gap-4 grid    divide-y shadow   overflow-y-auto  w-96    max-h-[80vh]   ...">
+        <div className="  px-3 border-gray-300   bg-white    pt-3  pb-1   text-black   absolute    left-6 2xl:left-70 top-[4rem] rounded-lg  border    cursor-pointer z-50   gap-4 grid    divide-y shadow   overflow-y-auto  w-96    max-h-[80vh]   ...">
           <h5 className="font-inter  uppercase text-gray-800 ">
             {" "}
             Products Related{" "}
