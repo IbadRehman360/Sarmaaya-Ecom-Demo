@@ -1,6 +1,7 @@
 import { getFakeProducts } from "@/utrils/fakeApi";
 import { ShieldCheckIcon } from "@heroicons/react/24/outline";
 import BackBtn from "./BackBtn";
+import BuyBtn from "./BuyBtn";
 
 export function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -93,15 +94,7 @@ async function DisplayProduct({ id }) {
                     ${product.price}{" "}
                   </p>
                 </div>
-                <div className="mt-10">
-                  <button
-                    as="button"
-                    onClick={() => addToCart(product)}
-                    className="w-full bg-black border border-transparent rounded-2xl py-4 px-8 flex items-center justify-center text-sm tracking-wider    font-poppins text-white  hover:opacity-80 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500"
-                  >
-                    Buy Now
-                  </button>
-                </div>
+                 <BuyBtn product={product} />
                 <div className="mt-6 text-center">
                   <a
                     href="#"

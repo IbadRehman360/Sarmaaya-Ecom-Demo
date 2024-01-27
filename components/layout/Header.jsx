@@ -1,5 +1,5 @@
 "use client";
- import { Fragment, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { Dialog, Disclosure, Popover, Transition } from "@headlessui/react";
 import Link from "next/link";
 import {
@@ -17,33 +17,34 @@ import {
 } from "@heroicons/react/20/solid";
 import Image from "next/image";
 import CartHeader from "./CartHeader";
+import Searchbar from "./Searchbar";
 const products = [
   {
     name: "Computing Devices:",
     description: "Enhance your data analytics with computing technology",
-    href: "#",
+    href: "/category/electronics",
     icon: ChartPieIcon,
   },
   {
     name: "Mobile Devices",
     description:
       "Engage and communicate effectively with your customers with mobile devices",
-    href: "#",
+    href: "/category/electronics",
     icon: CursorArrowRaysIcon,
   },
   {
     name: "Audio Electronics",
     description:
       "Ensure the safety and security of your customers' audio electronics",
-    href: "#",
+    href: "/category/electronics",
     icon: FingerPrintIcon,
   },
   {
     name: "Communication Devices",
     description:
       "Optimize connectivity by seamlessly integrating with third-party tools",
-    href: "#",
-    icon: SquaresPlusIcon,
+      href: "/category/electronics",
+      icon: SquaresPlusIcon,
   },
 ];
 
@@ -58,7 +59,7 @@ function classNames(...classes) {
 
 export default function Example() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
+ 
   return (
     <header>
       <nav
@@ -66,12 +67,13 @@ export default function Example() {
         aria-label="Global"
       >
         <div className=" flex-1">
-        <Link href="/"
+          <Link
+            href="/"
             className="-m-1.5 p-1.5 hover:shadow-md shadow-sm border-2 border-black px-6 py-2 hover:opacity-70 hover:border-opacity-70"
           >
-              <span className=" font-semibold text-xl  font-inter">
-                Ecommerence
-              </span>
+            <span className=" font-semibold text-xl  font-inter">
+              Ecommerence
+            </span>
           </Link>
         </div>
         <div className="flex lg:hidden">
@@ -132,59 +134,30 @@ export default function Example() {
               </Popover.Panel>
             </Transition>
           </Popover>
-
           <Link
-            href="#"
+            href="/category/men's clothing"
             className="text-sm  font-poppins  leading-6 text-gray-900"
           >
             Mens Fashion
           </Link>
           <Link
-            href="#"
-            className="text-sm   font-poppins  leading-6 text-gray-900"
+            href="/category/women's clothing"
+            passHref
+            className="text-sm font-poppins leading-6 text-gray-900"
           >
             Women&apos;s Fashion
           </Link>
+
           <Link
-            href="#"
-            className="text-sm  font-poppins  leading-6 text-gray-900"
+            href="/category/jewelery"
+            passHref
+            className="text-sm font-poppins leading-6 text-gray-900"
           >
-            Jewelry
+           Jewelery 
           </Link>
         </Popover.Group>
-        <div className="  hidden lg:flex lg:mr-20 xl:mr-4 justify-end lg:px-6 2xl:px-12 lg:ml-6 lg:justify-end">
-          <div className="w-full max-w-lg lg:max-w-xs text-left">
-            <label htmlFor="search" className="sr-only">
-              Search
-            </label>
-            <div className=" relative">
-              <div className="pointer-events-none absolute inset-y-0 right-4 flex items-center pl-3">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="currentColor"
-                  className="w-5 h-5"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
-                  />
-                </svg>
-              </div>
-              <input
-                id="search"
-                name="search"
-                className="block w-full rounded-md  font-poppins  bg-white border py-2.5 pl-4 p-3 px-40 text-gray-300 placeholder:text-gray-400 focus:bg-white focus:text-gray-900 focus:ring-0 sm:text-sm sm:leading-6"
-                placeholder="Search"
-                type="search"
-              />
-            </div>
-          </div>
-        </div>
-        <CartHeader/>
+    <Searchbar/>
+        <CartHeader />
       </nav>
 
       <Dialog
@@ -216,7 +189,7 @@ export default function Example() {
                   {({ open }) => (
                     <>
                       <Disclosure.Button className="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
-                        Product
+                       Electronic
                         <ChevronDownIcon
                           className={classNames(
                             open ? "rotate-180" : "",
@@ -241,22 +214,33 @@ export default function Example() {
                   )}
                 </Disclosure>
                 <Link
-                  href="#"
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                >
-                  Electronic{" "}
-                </Link>
-                <Link
-                  href="#"
+            href="/category/men's clothing"
+            passHref
+            onClick={() => setMobileMenuOpen(false)}
+
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >
                   Mens Fashion
                 </Link>
+
                 <Link
-                  href="#"
+            href="/category/women's clothing"
+            passHref
+            onClick={() => setMobileMenuOpen(false)}
+
+                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                >
+            Women&apos;s Fashion
+                </Link>
+
+                <Link
+            href="/category/jewelery"
+            passHref
+            onClick={() => setMobileMenuOpen(false)}
+
                   className="-mx-3 pb-6 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >
-                  Company
+     Jewelery
                 </Link>
               </div>
             </div>
@@ -298,3 +282,4 @@ export default function Example() {
     </header>
   );
 }
+ 

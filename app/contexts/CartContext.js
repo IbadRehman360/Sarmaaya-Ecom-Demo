@@ -6,20 +6,45 @@ const CartContext = createContext();
 const cartReducer = (state, action) => {
     switch (action.type) {
         case 'ADD_TO_CART':
-            return { ...state, items: [...state.items, action.payload] };
+            const productToAdd = {
+                ...action.payload,
+                quantity: 1
+            };
+            return { ...state, items: [...state.items, productToAdd] };
+
         case 'REMOVE_FROM_CART':
             return { ...state, items: state.items.filter(item => item.id !== action.payload) };
-        // Add more actions as needed
+
+        case 'INCREASE_QUANTITY':
+            const increasedItems = state.items.map(item => {
+                if (item.id === action.payload) {
+                    return { ...item, quantity: item.quantity + 1 };
+                }
+                return item;
+            });
+
+            return { ...state, items: increasedItems };
+
+        case 'DECREASE_QUANTITY':
+            const decreasedItems = state.items.map(item => {
+                if (item.id === action.payload && item.quantity > 1) {
+                    return { ...item, quantity: item.quantity - 1 };
+                }
+                return item;
+            });
+
+            return { ...state, items: decreasedItems };
+
         default:
             return state;
     }
 };
 
+
 const CartProvider = ({ children }) => {
     const [cart, dispatch] = useReducer(cartReducer, { items: [] });
 
     useEffect(() => {
-        // Load cart data from localStorage on component mount
         const savedCart = localStorage.getItem('cart');
         if (savedCart) {
             dispatch({ type: 'SET_CART', payload: JSON.parse(savedCart) });
@@ -27,7 +52,6 @@ const CartProvider = ({ children }) => {
     }, []);
 
     useEffect(() => {
-        // Save cart data to localStorage whenever it changes
         localStorage.setItem('cart', JSON.stringify(cart));
     }, [cart]);
 

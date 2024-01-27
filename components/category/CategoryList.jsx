@@ -4,7 +4,6 @@ import Link from "next/link";
 import { useCart } from "@/app/contexts/CartContext";
 function CategoryProducts({ products }) {
   const {cart, dispatch} = useCart()
-  console.log(cart)
 
   const addToCart = (item) => {
     dispatch({ type: 'ADD_TO_CART', payload: item });
@@ -16,7 +15,7 @@ function CategoryProducts({ products }) {
   return (
     <div className=" py-16 px-4 sm:py-24 sm:px-6  lg:max-w-[1400px] mx-auto lg:px-8">
       <div className="grid grid-cols-1 gap-y-12 sm:grid-cols-2 sm:gap-x-6 lg:grid-cols-4 xl:gap-x-6">
-        {products.slice(0, 7).map((product) => (
+        {products.map((product) => (
           <div
             key={product.id}
             className="bg-white overflow-hidden p-2.5 border shadow-lg rounded-lg"
@@ -24,7 +23,7 @@ function CategoryProducts({ products }) {
             <Link href={"product/" + product.id}>
               <div className="relative h-48 p-2.5 border rounded-xl">
                 <img
-                  className="w-full h-full object-contain"
+                  className="w-full hover:opacity-85 h-full object-contain"
                   src={product.image}
                   alt={product.title}
                 />
@@ -53,7 +52,7 @@ function CategoryProducts({ products }) {
               <button
               as="button"
               onClick={() => addToCart(product)}
-                className="flex justify-center  font-poppins items-center text-center text-xs bg-black  text-white py-4 px-4 rounded-md hover:opacity-80"
+                className="flex justify-center w-full font-poppins items-center text-center text-xs bg-black  text-white py-4 px-4 rounded-md hover:opacity-80"
               >
                 Add to Bag
                 <span className="ml-3 mb-0.5 font-montserrat text-[0.9rem] ">
