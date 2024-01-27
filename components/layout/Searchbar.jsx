@@ -69,9 +69,9 @@ function Searchbar() {
         </div>
       </div>
      
-      {filteredProducts.length > 0 && (
+      {searchQuery.length > 3  && filteredProducts.length > 0 && (
         <div className="  px-3 border-gray-300   bg-white    pt-3  pb-1   text-black   absolute    left-6 2xl:left-52 top-[4rem] rounded-lg  border    cursor-pointer z-50   gap-4 grid    divide-y shadow   overflow-y-auto  w-96    max-h-[80vh]   ...">
-          <h5 className="font-inter text-sm  uppercase text-gray-800 ">
+          <h5 className="font-inter  uppercase text-gray-800 ">
             {" "}
             Products Related{" "}
           </h5>
@@ -87,9 +87,9 @@ function Searchbar() {
           className="flex gap-4"
         >
           <Image
-            width={60}
-            height={60}
-            className="border  object-contain"
+            width={84}
+            height={84}
+            className="border object-cover"
             src={product.image}
             alt={product.title}
             />
